@@ -2,6 +2,7 @@ class Game {
   constructor() {
     this.targets = [];
     this.preditors = [];
+    this.state = false;
     // this.ambience = ambience;
     // this.gunSound = gunSound;
   }
@@ -28,7 +29,7 @@ class Game {
       target.draw();
       // console.log(target);
     });
-    if (frameCount % 480 === 0) {
+    if (frameCount % 360 === 0) {
       this.preditors.push(new Wolf());
     }
     this.preditors.forEach(wolf => {
@@ -41,6 +42,5 @@ class Game {
     this.hunter.setup();
     this.target.setup();
     this.wolf.setup();
-    // this.ambience.play();
   }
 }

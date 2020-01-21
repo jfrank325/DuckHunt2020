@@ -1,12 +1,16 @@
 const game = new Game();
-let falling = false;
-let duck;
 let score = 0;
 let ambience;
 let gunShot;
 let timer = 60;
-let mode;
 let reload;
+let ammo = 5;
+
+function keyPressed() {
+  if (keyCode === 32) {
+    game.state = true;
+  }
+}
 
 function preload() {
   game.init();
@@ -16,72 +20,81 @@ function preload() {
 }
 
 function setup() {
-  mode = 0;
   createCanvas(3000, 970);
   game.setup();
-  ambience.play();
+  ambience.loop();
   textSize(50);
   textAlign(CENTER, CENTER);
+  clear();
 }
 
 function draw() {
-  // text(`Let's Hunt! -- Press Space To Begin`);
-  // if (keyIsDown(32)) {
-  //   game.draw();
-  // }
-  game.draw();
-  fill('white');
-  text(`SCORE ${score}`, 1500, 30, 300, 100);
-  fill('red');
-  text(timer, 1700, 30, 300, 100);
-  if (frameCount % 60 === 0) {
-    timer--;
+  if (game.state === false) {
+    fill('red');
+    text(`Let's Hunt!`, 450, 100, 500, 200);
+    text(`Press Space To Begin`, 500, 300, 650, 200);
   }
-  if (timer == -1) {
+
+  if (game.state === true) {
+    game.draw();
     fill('white');
-    if (score <= 50) {
-      score = 'You need to work on your hunting skillz';
+    text(`SCORE ${score}`, 2000, 30, 300, 100);
+    text(`AMMO ${ammo}`, 2000, 150, 300, 100);
+    fill('red');
+    text(timer, 1700, 30, 300, 100);
+    if (frameCount % 60 === 0) {
+      timer--;
     }
-    if (score < 100 && score > 50) {
-      score = `You're becoming a good hunter`;
+    if (timer == -1) {
+      fill('white');
+      if (score <= 50) {
+        score = 'You need to work on your hunting skillz';
+      }
+      if (score < 180 && score > 70) {
+        score = `You're becoming a good hunter`;
+      }
+      if (score >= 180) {
+        score = `Sharpshooter Skillz!!`;
+      }
+      text(`${score}!`, width / 2, height * 0.3);
+      noLoop();
     }
-    if (score >= 100) {
-      score = `Sharpshooter Skillz!!`;
-    }
-    text(`${score}!`, width / 2, height * 0.3);
-    noLoop();
   }
 }
 
-// function pause() {
-//   if (keyIsDown(17)) {
-//     loop();
+// function keyPressed() {
+//   if (keycode === 32) {
+//     game.loop();
 //   }
 // }
-
-// function unPause() {
-//   if (keyIsDown(17)) {
-//     noloop();
+// function keyPressed() {
+//   if (keyCode === 32) {
+//     game.state = true;
 //   }
 // }
 
 function mousePressed() {
   if (mousePressed) {
-    gunShot.play();
-    game.targets.filter(target => {
-      if (target.clicked() === true) {
-        score += 10;
-        console.log('fall');
-        target.fall(target);
-      }
-    });
-  }
-}
-
-function reloaded() {
-  if (mouseIsPressed) {
-    if (mouseButton === RIGHT) {
+    if (mouseButton === LEFT && ammo > 0) {
+      gunShot.play();
+      ammo -= 1;
+      game.targets.filter(target => {
+        if (target.clicked() === true) {
+          score += 10;
+          console.log('fall');
+          target.fall();
+        }
+      });
+      game.preditors.filter(preditors => {
+        if (preditors.clicked() === true) {
+          score += 30;
+          preditors.shrink();
+        }
+      });
+    }
+    if (mouseButton === CENTER) {
       reload.play();
+      ammo = 5;
     }
   }
 }

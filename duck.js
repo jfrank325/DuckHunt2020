@@ -1,13 +1,14 @@
 class Duck {
   constructor() {
     this.direction = [];
-    this.gravity = 0.07;
+    this.gravity = 0.09;
     this.velocity = 0;
     this.x = random(0, 3500);
     this.y = random(-100, 600);
     this.originY = this.y;
     this.width = random(10, 50);
     this.height = this.width;
+    this.falling = false;
   }
 
   setup() {
@@ -53,11 +54,11 @@ class Duck {
     // rect(this.x, this.y, this.width, this.height);
     image(game.target.img, this.x, this.y, this.width, this.height);
 
-    if (falling) {
-      duck.velocity += duck.gravity;
-      //duck.velocity += 300;
+    if (this.falling) {
+      this.velocity += this.gravity;
+      //this.velocity += 300;
 
-      duck.y += duck.velocity;
+      this.y += this.velocity;
     }
   }
   clicked() {
@@ -75,8 +76,7 @@ class Duck {
     return true;
   }
 
-  fall(target) {
-    falling = true;
-    duck = target;
+  fall() {
+    this.falling = true;
   }
 }
