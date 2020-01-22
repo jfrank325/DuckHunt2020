@@ -1,7 +1,6 @@
 class Hunter {
   constructor() {
     this.img = loadImage('/Images/Hunter.png');
-    this.sound = loadSound('/Sounds/Reload.mp3');
   }
 
   setup() {
@@ -17,6 +16,12 @@ class Hunter {
     }
     if (mouseX < this.x - 50) {
       this.x -= 15;
+    }
+    if (mouseY > this.y && this.y > 60) {
+      this.y += 20;
+    }
+    if (mouseY < 450 && this.y > 600) {
+      this.y -= 20;
     }
 
     image(this.img, this.x, this.y);

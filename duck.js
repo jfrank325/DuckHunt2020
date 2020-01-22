@@ -6,15 +6,10 @@ class Duck {
     this.x = random(0, 3500);
     this.y = random(-100, 600);
     this.originY = this.y;
-    this.width = random(10, 50);
+    this.width = random(10, 70);
     this.height = this.width;
     this.falling = false;
-  }
-
-  setup() {
     this.img = loadImage('/Images/Duck1.gif');
-    // this.height = 300;
-    // this.width = 500;
   }
 
   draw() {
@@ -31,10 +26,10 @@ class Duck {
     if (this.width >= 20 && this.width <= 30) {
       this.x -= 4;
     }
-    if (this.width >= 30 && this.width <= 40) {
+    if (this.width >= 30 && this.width <= 50) {
       this.x -= 7;
     }
-    if (this.width >= 40 && this.width <= 50) {
+    if (this.width >= 50 && this.width <= 70) {
       this.x -= 8;
     }
     //Vary the direction

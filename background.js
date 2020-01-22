@@ -1,16 +1,16 @@
 class Background {
   constructor() {
     this.images = [
-      {
-        src: loadImage('/Images/Fielder.jpg'),
-        x: 0,
-        speed: 15,
-      },
       // {
-      //   src: loadImage('/Images/BiggerField.jpg'),
-      //   x: 2024,
-      //   speed: 12,
+      //   src: loadImage('/Images/NLights.jpg'),
+      //   x: 0,
+      //   speed: 15,
       // },
+      {
+        src: loadImage('/Images/pond.jpg'),
+        x: 2024,
+        speed: 12,
+      },
     ];
   }
 
@@ -41,8 +41,14 @@ class Background {
     }
   }
   draw() {
-    for (let i = 0; i < this.images.length; i++) {
-      this.move(this.images[i]);
-    }
+    //for (let i = 0; i < this.images.length; i++) {
+    // if (game.level === 1) {
+    this.move(this.images[0]);
+    // }
+    // if (game.level === 2) {
+    //   this.move(this.images[1]);
+    // }
+
+    // }
   }
 }

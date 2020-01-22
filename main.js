@@ -5,6 +5,7 @@ let gunShot;
 let timer = 60;
 let reload;
 let ammo = 5;
+let backImg;
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -17,6 +18,7 @@ function preload() {
   ambience = loadSound('/Sounds/outdoorSound.mp3');
   gunShot = loadSound('/Sounds/gunShot.mp3');
   reload = loadSound('/Sounds/Reload.mp3');
+  backImg = loadImage('/Images/bunker.jpg');
 }
 
 function setup() {
@@ -30,9 +32,10 @@ function setup() {
 
 function draw() {
   if (game.state === false) {
+    background(backImg);
     fill('red');
     text(`Let's Hunt!`, 450, 100, 500, 200);
-    text(`Press Space To Begin`, 500, 300, 650, 200);
+    text(`Press Space To Begin`, 500, 200, 650, 200);
   }
 
   if (game.state === true) {
@@ -80,14 +83,14 @@ function mousePressed() {
       ammo -= 1;
       game.targets.filter(target => {
         if (target.clicked() === true) {
-          score += 10;
+          score += 20;
           console.log('fall');
           target.fall();
         }
       });
       game.preditors.filter(preditors => {
         if (preditors.clicked() === true) {
-          score += 30;
+          score += 10;
           preditors.shrink();
         }
       });

@@ -3,8 +3,7 @@ class Game {
     this.targets = [];
     this.preditors = [];
     this.state = false;
-    // this.ambience = ambience;
-    // this.gunSound = gunSound;
+    this.level = [1, 2, 3];
   }
 
   init() {
@@ -20,7 +19,7 @@ class Game {
   draw() {
     this.background.draw();
     cursor(CROSS);
-    if (frameCount % 60 === 0) {
+    if (frameCount % 90 === 0) {
       this.targets.push(new Duck());
       //    console.log(this.targets);
     }
@@ -29,7 +28,7 @@ class Game {
       target.draw();
       // console.log(target);
     });
-    if (frameCount % 360 === 0) {
+    if (frameCount % 1200 === 0) {
       this.preditors.push(new Wolf());
     }
     this.preditors.forEach(wolf => {
@@ -40,7 +39,5 @@ class Game {
   }
   setup() {
     this.hunter.setup();
-    this.target.setup();
-    this.wolf.setup();
   }
 }

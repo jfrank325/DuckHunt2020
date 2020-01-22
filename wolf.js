@@ -1,16 +1,11 @@
 class Wolf {
   constructor() {
-    this.x = random(-200, 3500);
-    this.y = random(700, 780);
-    this.width = 80;
-    this.height = 60;
-    this.state = false;
-  }
-
-  setup() {
-    this.img = loadImage('/Images/wolf.gif');
-    // this.height = 300;
-    // this.width = 500;
+    this.x = random(-800, -10);
+    this.y = random(720, 800);
+    this.width = 240;
+    this.height = 139;
+    this.shot = false;
+    this.img = loadImage('/Images/wolfy.gif');
   }
 
   draw() {
@@ -20,16 +15,18 @@ class Wolf {
         this.x -= 8;
       }
     }
-    this.x += 4;
+    this.x += 8;
 
     // rect(this.x, this.y, this.width, this.height);
-    image(game.wolf.img, this.x, this.y, this.width, this.height);
-    if (this.state) {
-      if (this.width > 0) {
-        this.width--;
+    image(this.img, this.x, this.y, this.width, this.height);
+    if (this.shot) {
+      if (this.width > 1) {
+        this.width -= 0.5;
+        this.y--;
       }
-      if (this.height > 0) {
-        this.height--;
+      if (this.height > 1) {
+        this.height -= 0.5;
+        this.y--;
       }
     }
   }
@@ -47,6 +44,6 @@ class Wolf {
     return true;
   }
   shrink() {
-    this.state = true;
+    this.shot = true;
   }
 }
