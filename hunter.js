@@ -1,6 +1,9 @@
 class Hunter {
   constructor() {
     this.img = loadImage('/Images/Hunter.png');
+    this.velocity = 0;
+    this.gravity = 0.8;
+    this.shot = false;
   }
 
   setup() {
@@ -8,6 +11,7 @@ class Hunter {
     this.width = this.img.width;
     this.x = 1500;
     this.y = height - this.height;
+    this.originY = this.y;
   }
 
   draw() {
@@ -23,7 +27,25 @@ class Hunter {
     if (mouseY < 450 && this.y > 600) {
       this.y -= 20;
     }
+    // this.velocity += this.gravity;
+    // this.y += this.originY;
+    // if (this.y >= this.originY) {
+    //   this.y = this.originY;
+    // }
+
+    if (this.shot) {
+      if (this.y > height - this.height - 30) {
+        this.y -= 10;
+      } else {
+        this.shot = false;
+
+        this.y = height - this.height;
+      }
+    }
 
     image(this.img, this.x, this.y);
+  }
+  recoil() {
+    this.shot = true;
   }
 }

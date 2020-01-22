@@ -1,15 +1,23 @@
 class Background {
   constructor() {
     this.images = [
-      // {
-      //   src: loadImage('/Images/NLights.jpg'),
-      //   x: 0,
-      //   speed: 15,
-      // },
       {
         src: loadImage('/Images/pond.jpg'),
-        x: 2024,
-        speed: 12,
+        name: 1,
+        x: 0,
+        speed: 15,
+      },
+      {
+        src: loadImage('/Images/Fielder.jpg'),
+        name: 2,
+        x: 0,
+        speed: 15,
+      },
+      {
+        src: loadImage('/Images/NLights.jpg'),
+        name: 3,
+        x: 0,
+        speed: 15,
       },
     ];
   }
@@ -42,8 +50,16 @@ class Background {
   }
   draw() {
     //for (let i = 0; i < this.images.length; i++) {
-    // if (game.level === 1) {
-    this.move(this.images[0]);
+    console.log(game.level);
+    // if (game.game.level === 1) {
+    if (game.level === 1) {
+      this.move(this.images[0]);
+    } else if (game.level === 2) {
+      this.move(this.images[1]);
+    } else if (game.level === 3) {
+      this.move(this.images[2]);
+    }
+
     // }
     // if (game.level === 2) {
     //   this.move(this.images[1]);
