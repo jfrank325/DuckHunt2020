@@ -2,8 +2,8 @@ class Zombie {
   constructor() {
     this.gravity = 0.9;
     this.velocity = 0;
-    this.x = random(-30, 3500);
-    this.y = random(450, 550);
+    this.x = random(30, 2950);
+    this.y = random(550, 650);
     this.width = random(50, 90);
     this.height = this.width;
     this.shot = false;
@@ -12,31 +12,31 @@ class Zombie {
 
   draw() {
     if (keyIsDown(37)) {
-      this.x += 2;
+      this.x += 15;
       if (keyIsDown(38)) {
-        this.x -= 8;
+        this.x -= 15;
       }
     }
-    this.y += 1;
+    this.y += 0.7;
     this.width += 0.9;
     image(this.img, this.x, this.y, this.width, this.height);
     if (this.shot) {
       if (this.width > 1) {
         this.width -= 3;
       }
-      if (this.height > 1) {
-        this.height -= 3;
-      }
+      // if (this.height > 1) {
+      //   this.height -= 3;
+      // }
       this.y += 12;
     }
   }
   clicked() {
     // setting parameters for the mouse to click inside
-    if (this.x + this.width < mouseX || this.x > mouseX) {
+    if (this.x + this.width - 20 < mouseX || this.x + 20 > mouseX) {
       console.log('false');
       return false;
     }
-    if (this.y + this.height < mouseY || this.y > mouseY) {
+    if (this.y + 30 < mouseY || this.y > mouseY) {
       console.log('false');
 
       return false;

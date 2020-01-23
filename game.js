@@ -1,6 +1,7 @@
 class Game {
   constructor() {
     this.targets = [];
+    this.reverseDucks = [];
     this.preditors = [];
     this.zombies = [];
     this.intro = false;
@@ -11,7 +12,8 @@ class Game {
     this.finish = false;
     this.score = 0;
     this.ammo = 5;
-    this.timer = 60;
+    this.timer = 40;
+    this.totalAmmo = 20;
   }
 
   init() {
@@ -20,6 +22,7 @@ class Game {
     this.target = new Duck();
     this.wolf = new Wolf();
     this.zombie = new Zombie();
+    this.reverseDuck = new ReverseDuck();
   }
 
   draw() {
@@ -33,18 +36,23 @@ class Game {
       this.background.draw();
     }
     cursor(CROSS);
-    if (frameCount % 90 === 0) {
+    if (frameCount % 120 === 0) {
       this.targets.push(new Duck());
       //    console.log(this.targets);
     }
-
+    if (frameCount % 180 === 0) {
+      this.reverseDucks.push(new ReverseDuck());
+    }
+    this.reverseDucks.forEach(duck => {
+      duck.draw();
+    });
     this.targets.forEach(target => {
       target.draw();
       // console.log(target);
     });
 
     if (this.level == 2) {
-      if (frameCount % 1200 === 0) {
+      if (frameCount % 840 === 0) {
         this.preditors.push(new Wolf());
       }
       this.preditors.forEach(wolf => {
@@ -57,6 +65,9 @@ class Game {
       }
       this.zombies.forEach(zombie => {
         zombie.draw();
+        if (zombie.y >= 970) {
+          this.gameOver = true;
+        }
       });
     }
     this.hunter.draw();

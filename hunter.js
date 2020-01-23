@@ -16,10 +16,10 @@ class Hunter {
 
   draw() {
     if (mouseX > this.x + 30) {
-      this.x += 18;
+      this.x += 20;
     }
     if (mouseX < this.x - 50) {
-      this.x -= 15;
+      this.x -= 17;
     }
     if (mouseY > this.y && this.y > 60) {
       this.y += 20;

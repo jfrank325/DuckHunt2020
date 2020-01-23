@@ -59,12 +59,5 @@ class Background {
     } else if (game.level === 3) {
       this.move(this.images[2]);
     }
-
-    // }
-    // if (game.level === 2) {
-    //   this.move(this.images[1]);
-    // }
-
-    // }
   }
 }
