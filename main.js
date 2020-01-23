@@ -40,9 +40,7 @@ function setup() {
   if (game.level == 1 || game.level == 2) {
     ambience.loop();
   }
-  if (game.level == 3) {
-    zomSounds.play();
-  }
+
   textSize(50);
   textAlign(CENTER, CENTER);
   clear();
@@ -50,7 +48,6 @@ function setup() {
 
 function draw() {
   if (game.intro === true && game.start === false) {
-    play = true;
     background(backImg);
     fill('blue');
     textFont('Georgia');
@@ -61,7 +58,6 @@ function draw() {
     game.intro = false;
     game.level = false;
     game.start = false;
-    ambience.pause();
     background(loser);
     textFont('Georgia');
     fill('red');
@@ -72,7 +68,8 @@ function draw() {
   if (game.start == true) {
     game.intro = false;
     if (game.level == 1) {
-      play = true;
+      zomSounds.stop();
+      playAmbience();
       game.draw();
       fill('white');
       textFont('Georgia');
@@ -89,7 +86,6 @@ function draw() {
     }
 
     if (game.level == 2) {
-      play = true;
       game.draw();
       // game.targets.width = game.targets.width / 3;
       fill('white');
@@ -106,8 +102,8 @@ function draw() {
 
     if (game.level == 3) {
       game.draw();
-      playCreepy = true;
-      // ambience.pause();
+      playZombie();
+      ambience.stop();
       fill('white');
       textFont('Georgia');
       text(`SCORE ${game.score}`, 2000, 100, 380, 100);
@@ -184,6 +180,19 @@ function mousePressed() {
     }
   }
 }
+
+function playZombie() {
+  if (!zomSounds.isPlaying()) {
+    zomSounds.play();
+  }
+}
+
+function playAmbience() {
+  if (!ambience.isPlaying()) {
+    ambience.loop();
+  }
+}
+
 document.body.style.display = 'flex';
 document.body.style.justifyContent = 'center';
 document.body.style.zIndex = 1;

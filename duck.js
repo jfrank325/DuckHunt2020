@@ -79,7 +79,7 @@ class Duck {
 class ReverseDuck extends Duck {
   constructor() {
     super();
-    this.img = loadImage('/Images/duckRight.gif');
+    this.img = loadImage('Images/duckRight.gif');
   }
   draw() {
     if (keyIsDown(37)) {
