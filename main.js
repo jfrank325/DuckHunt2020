@@ -49,8 +49,10 @@ function setup() {
 function draw() {
   if (game.intro === true && game.start === false) {
     background(backImg);
-    fill('blue');
+    fill('black');
     textFont('Georgia');
+    text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
+    fill('blue');
     text(`Let's Hunt!`, 540, 100, 500, 200);
     text(`Press Enter To Begin`, 565, 150, 650, 200);
   }
@@ -132,7 +134,7 @@ function draw() {
       game.totalAmmo = 30;
       game.level = 2;
     }
-    if (game.timer === -1 && game.score > 400 && game.level == 2) {
+    if (game.timer === -1 && game.score > 500 && game.level == 2) {
       game.timer = 40;
       game.totalAmmo = 60;
       game.level = 3;
