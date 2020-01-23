@@ -53,8 +53,8 @@ function draw() {
     textFont('Georgia');
     text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
     fill('blue');
-    text(`Let's Hunt!`, 840, 100, 500, 200);
-    text(`Press Enter To Begin`, 865, 150, 650, 200);
+    text(`Let's Hunt!`, 940, 200, 500, 200);
+    text(`Press Enter To Begin`, 965, 250, 650, 200);
   }
   if (game.gameOver == true) {
     game.intro = false;

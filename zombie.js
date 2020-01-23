@@ -3,7 +3,7 @@ class Zombie {
     this.gravity = 0.9;
     this.velocity = 0;
     this.x = random(500, 2500);
-    this.y = random(550, 650);
+    this.y = random(400, 600);
     this.width = random(50, 90);
     this.height = this.width;
     this.shot = false;
