@@ -134,11 +134,11 @@ function draw() {
       game.totalAmmo = 30;
       game.level = 2;
     }
-    if (game.timer === -1 && game.score > 500 && game.level == 2) {
+    if (game.timer === -1 && game.score >= 450 && game.level == 2) {
       game.timer = 40;
       game.totalAmmo = 60;
       game.level = 3;
-    } else if ((game.timer === -1 && game.score < 200) || (game.timer === -1 && game.score < 400 && game.level == 2)) {
+    } else if ((game.timer === -1 && game.score < 200) || (game.timer === -1 && game.score < 450 && game.level == 2)) {
       game.gameOver = true;
     }
   }
