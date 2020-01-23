@@ -66,7 +66,7 @@ class Game {
       }
       this.zombies.forEach(zombie => {
         zombie.draw();
-        if (zombie.y >= 1000 && zombie.width >= 50) {
+        if (zombie.y >= 1000 && zombie.y < 1050 && zombie.width >= 50) {
           this.gameOver = true;
         }
       });

@@ -61,6 +61,7 @@ function draw() {
     game.level = false;
     game.start = false;
     background(loser);
+    zomSounds.stop();
     textFont('Georgia');
     fill('red');
     text(`GAME OVER`, 700, 100, 500, 200);
@@ -95,7 +96,9 @@ function draw() {
       text(`SCORE ${game.score}`, 2000, 100, 380, 100);
       text(`AMMO ${game.totalAmmo}`, 1910, 145, 500, 100);
       text(`ROUNDS ${game.ammo}`, 2020, 192, 300, 100);
-      fill('red');
+      if (game.timer <= 10) {
+        fill('red');
+      }
       text(game.timer, 1830, 100, 300, 100);
       if (frameCount % 60 === 0) {
         game.timer--;
@@ -111,7 +114,9 @@ function draw() {
       text(`SCORE ${game.score}`, 2000, 100, 380, 100);
       text(`AMMO ${game.totalAmmo}`, 1910, 145, 500, 100);
       text(`ROUNDS ${game.ammo}`, 2020, 192, 300, 100);
-      fill('red');
+      if (game.timer <= 10) {
+        fill('red');
+      }
       text(game.timer, 1830, 100, 300, 100);
       if (frameCount % 60 === 0) {
         game.timer--;
@@ -124,6 +129,7 @@ function draw() {
       game.intro = false;
       game.finish = true;
       background(end);
+      zomSounds.stop();
       textFont('Georgia');
       text(`Congratulations!`, 980, 100, 500, 200);
       text(`You're a great hunter!`, 980, 150, 500, 200);
