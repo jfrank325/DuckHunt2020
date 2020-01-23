@@ -1,6 +1,6 @@
 class Hunter {
   constructor() {
-    this.img = loadImage('/Images/Hunter.png');
+    this.img = loadImage('Images/Hunter.png');
     this.velocity = 0;
     this.gravity = 0.8;
     this.shot = false;

@@ -7,7 +7,7 @@ class Zombie {
     this.width = random(50, 90);
     this.height = this.width;
     this.shot = false;
-    this.img = loadImage('/Images/zombie.gif');
+    this.img = loadImage('Images/zombie.gif');
   }
 
   draw() {

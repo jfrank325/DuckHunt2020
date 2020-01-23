@@ -5,7 +5,7 @@ class Wolf {
     this.width = 240;
     this.height = 180;
     this.shot = false;
-    this.img = loadImage('/Images/wildSchwein.gif');
+    this.img = loadImage('Images/wildSchwein.gif');
   }
 
   draw() {

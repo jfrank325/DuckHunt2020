@@ -24,14 +24,14 @@ function keyPressed() {
 
 function preload() {
   game.init();
-  ambience = loadSound('/Sounds/outdoorSound.mp3');
-  gunShot = loadSound('/Sounds/gunShot.mp3');
-  reload = loadSound('/Sounds/Reload.mp3');
+  ambience = loadSound('Sounds/outdoorSound.mp3');
+  gunShot = loadSound('Sounds/gunShot.mp3');
+  reload = loadSound('Sounds/Reload.mp3');
   // quack = loadSound('/Sounds/duck.mp3');
-  backImg = loadImage('/Images/bunker.jpg');
-  zomSounds = loadSound('/Sounds/zombieAttack.mp3');
-  end = loadImage('/Images/Success.jpg');
-  loser = loadImage('/Images/gameover.jpg');
+  backImg = loadImage('Images/bunker.jpg');
+  zomSounds = loadSound('Sounds/zombieAttack.mp3');
+  end = loadImage('Images/Success.jpg');
+  loser = loadImage('Images/gameover.jpg');
 }
 
 function setup() {

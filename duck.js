@@ -9,7 +9,7 @@ class Duck {
     this.width = random(10, 70);
     this.height = this.width;
     this.falling = false;
-    this.img = loadImage('/Images/Duck1.gif');
+    this.img = loadImage('Images/Duck1.gif');
   }
 
   draw() {

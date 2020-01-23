@@ -2,19 +2,19 @@ class Background {
   constructor() {
     this.images = [
       {
-        src: loadImage('/Images/pond.jpg'),
+        src: loadImage('Images/pond.jpg'),
         name: 1,
         x: 0,
         speed: 15,
       },
       {
-        src: loadImage('/Images/Fielder.jpg'),
+        src: loadImage('Images/Fielder.jpg'),
         name: 2,
         x: 0,
         speed: 15,
       },
       {
-        src: loadImage('/Images/NLights.jpg'),
+        src: loadImage('Images/NLights.jpg'),
         name: 3,
         x: 0,
         speed: 15,
