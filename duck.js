@@ -14,9 +14,9 @@ class Duck {
 
   draw() {
     if (keyIsDown(37)) {
-      this.x += 2;
+      this.x += 16;
       if (keyIsDown(38)) {
-        this.x -= 8;
+        this.x -= 16;
       }
     }
     //vary the speed
@@ -24,13 +24,13 @@ class Duck {
       this.x -= 2.5;
     }
     if (this.width >= 20 && this.width <= 30) {
-      this.x -= 4;
+      this.x -= 5;
     }
     if (this.width >= 30 && this.width <= 50) {
-      this.x -= 7;
+      this.x -= 8;
     }
     if (this.width >= 50 && this.width <= 70) {
-      this.x -= 8;
+      this.x -= 11;
     }
     //Vary the direction
     if (this.y <= -100 && this.y >= 200) {
@@ -115,7 +115,14 @@ class ReverseDuck extends Duck {
       this.y -= 1;
     }
     image(game.reverseDuck.img, this.x, this.y, this.width, this.height);
+    if (this.falling) {
+      this.velocity += this.gravity;
+      //this.velocity += 300;
+
+      this.y += this.velocity;
+    }
   }
+
   clicked() {
     // setting parameters for the mouse to click inside
     if (this.x + this.width < mouseX || this.x > mouseX) {

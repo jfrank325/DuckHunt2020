@@ -2,7 +2,7 @@ class Zombie {
   constructor() {
     this.gravity = 0.9;
     this.velocity = 0;
-    this.x = random(30, 2950);
+    this.x = random(500, 2500);
     this.y = random(550, 650);
     this.width = random(50, 90);
     this.height = this.width;
@@ -22,7 +22,7 @@ class Zombie {
     image(this.img, this.x, this.y, this.width, this.height);
     if (this.shot) {
       if (this.width > 1) {
-        this.width -= 3;
+        this.width -= 100;
       }
       // if (this.height > 1) {
       //   this.height -= 3;
