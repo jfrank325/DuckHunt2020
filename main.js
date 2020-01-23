@@ -53,8 +53,8 @@ function draw() {
     textFont('Georgia');
     text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
     fill('blue');
-    text(`Let's Hunt!`, 540, 100, 500, 200);
-    text(`Press Enter To Begin`, 565, 150, 650, 200);
+    text(`Let's Hunt!`, 840, 100, 500, 200);
+    text(`Press Enter To Begin`, 865, 150, 650, 200);
   }
   if (game.gameOver == true) {
     game.intro = false;
@@ -64,9 +64,9 @@ function draw() {
     zomSounds.stop();
     textFont('Georgia');
     fill('red');
-    text(`GAME OVER`, 700, 100, 500, 200);
+    text(`GAME OVER`, 900, 100, 500, 200);
     fill('white');
-    text(`Press ENTER if you think you can suck less and try again`, 700, 250, 500, 200);
+    text(`Press ENTER if you think you can suck less and try again`, 900, 250, 500, 200);
   }
   if (game.start == true) {
     game.intro = false;
