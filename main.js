@@ -203,7 +203,7 @@ function mousePressed() {
       reload.play();
       game.ammo = 5;
     }
-    if (mouseButton === RIGHT && game.totalAmmo === 0) {
+    if (mouseButton === LEFT && game.ammo === 0) {
       click.play();
     }
   }
