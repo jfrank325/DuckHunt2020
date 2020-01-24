@@ -59,9 +59,9 @@ function draw() {
     text(`Press Enter To Begin`, 965, 310, 650, 200);
     fill('black');
     textSize(40);
-    text(`FIRE- Left Click`, 965, 400, 500, 100);
-    text(`RELOAD-Right Click`, 965, 440, 500, 100);
-    text(`ARROWS-Look Around`, 965, 480, 500, 100);
+    text(`FIRE - Left Click`, 965, 400, 500, 100);
+    text(`RELOAD - Right Click`, 965, 440, 500, 100);
+    text(`ARROWS - Look Around`, 965, 480, 500, 100);
   }
   if (game.gameOver == true) {
     game.intro = false;
@@ -142,9 +142,9 @@ function draw() {
       background(end);
       zomSounds.stop();
       textFont('Georgia');
-      text(`Congratulations!`, 930, 150, 500, 200);
-      text(`You're a great hunter!`, 930, 200, 500, 200);
-      text(`Press ENTER to play again`, 930, 250, 700, 200);
+      text(`Congratulations!`, 980, 150, 500, 200);
+      text(`You're a great hunter!`, 980, 200, 500, 200);
+      text(`Press ENTER to play again`, 980, 250, 700, 200);
     }
     if (game.timer === -1 && game.score <= 600 && game.level == 3) {
       game.gameOver = true;
