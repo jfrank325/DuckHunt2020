@@ -169,7 +169,7 @@ function draw() {
 
 function mousePressed() {
   if (mousePressed) {
-    if (mouseButton === LEFT && game.ammo > 0 && mouseButton === LEFT && game.totalAmmo > 0) {
+    if (mouseButton === LEFT && game.ammo > 0 && game.totalAmmo > 0) {
       gunShot.play();
       game.hunter.recoil();
       game.ammo -= 1;
