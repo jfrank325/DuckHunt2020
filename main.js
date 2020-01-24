@@ -71,8 +71,10 @@ function draw() {
     zomSounds.stop();
     textFont('Georgia');
     fill('red');
+    textSize(70);
     text(`GAME OVER`, 900, 100, 500, 200);
-    fill('black');
+    fill('blue');
+    textSize(50);
     text(`Press ENTER if you think you can suck less and try again`, 900, 250, 500, 200);
   }
   if (game.start == true) {
