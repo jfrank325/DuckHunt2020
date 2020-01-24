@@ -1,7 +1,7 @@
 class Duck {
   constructor() {
     this.direction = [];
-    this.gravity = 0.15;
+    this.gravity = 0.25;
     this.velocity = 0;
     this.x = random(0, 3500);
     this.y = random(20, 600);
