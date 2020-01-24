@@ -2,7 +2,7 @@ class Zombie {
   constructor() {
     this.gravity = 0.9;
     this.velocity = 0;
-    this.x = random(500, 2500);
+    this.x = random(800, 2000);
     this.y = random(400, 600);
     this.width = random(50, 90);
     this.height = this.width;

@@ -142,9 +142,9 @@ function draw() {
       background(end);
       zomSounds.stop();
       textFont('Georgia');
-      text(`Congratulations!`, 980, 100, 500, 200);
-      text(`You're a great hunter!`, 980, 150, 500, 200);
-      text(`Press ENTER to play again`, 980, 200, 700, 200);
+      text(`Congratulations!`, 930, 150, 500, 200);
+      text(`You're a great hunter!`, 930, 200, 500, 200);
+      text(`Press ENTER to play again`, 930, 250, 700, 200);
     }
     if (game.timer === -1 && game.score >= 200 && game.level == 1) {
       game.timer = 40;
