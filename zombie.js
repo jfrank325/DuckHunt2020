@@ -3,7 +3,7 @@ class Zombie {
     this.gravity = 0.9;
     this.velocity = 0;
     this.x = random(800, 2000);
-    this.y = random(400, 600);
+    this.y = random(450, 500);
     this.width = random(50, 90);
     this.height = this.width;
     this.shot = false;
@@ -17,8 +17,8 @@ class Zombie {
         this.x -= 15;
       }
     }
-    this.y += 0.7;
-    this.width += 0.9;
+    this.y += random(0.7, 2.5);
+    this.width += random(0.9, 2);
     image(this.img, this.x, this.y, this.width, this.height);
     if (this.shot) {
       if (this.width > 1) {
@@ -32,7 +32,7 @@ class Zombie {
   }
   clicked() {
     // setting parameters for the mouse to click inside
-    if (this.x + this.width - 23 < mouseX || this.x + 23 > mouseX) {
+    if (this.x + this.width - 20 < mouseX || this.x + 20 > mouseX) {
       console.log('false');
       return false;
     }

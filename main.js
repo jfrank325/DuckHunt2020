@@ -146,14 +146,18 @@ function draw() {
       text(`You're a great hunter!`, 930, 200, 500, 200);
       text(`Press ENTER to play again`, 930, 250, 700, 200);
     }
+    if (game.timer === -1 && game.score <= 600 && game.level == 3) {
+      game.gameOver = true;
+    }
+
     if (game.timer === -1 && game.score >= 200 && game.level == 1) {
       game.timer = 40;
-      game.totalAmmo = 30;
+      game.totalAmmo = 20;
       game.level = 2;
     }
     if (game.timer === -1 && game.score >= 450 && game.level == 2) {
       game.timer = 40;
-      game.totalAmmo = 60;
+      game.totalAmmo = 50;
       game.level = 3;
     } else if ((game.timer === -1 && game.score < 200) || (game.timer === -1 && game.score < 450 && game.level == 2)) {
       game.gameOver = true;

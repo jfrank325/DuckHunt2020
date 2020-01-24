@@ -36,9 +36,17 @@ class Game {
       this.background.draw();
     }
     cursor(CROSS);
-    if (frameCount % 90 === 0) {
-      this.targets.push(new Duck());
-      //    console.log(this.targets);
+    if (this.level == 1) {
+      if (frameCount % 90 === 0) {
+        this.targets.push(new Duck());
+        //    console.log(this.targets);
+      }
+    }
+    if (this.level == 2) {
+      if (frameCount % 120 === 0) {
+        this.targets.push(new Duck());
+        //    console.log(this.targets);
+      }
     }
     // if (frameCount % 180 === 0) {
     //   this.reverseDucks.push(new ReverseDuck());
@@ -61,7 +69,7 @@ class Game {
       });
     }
     if (this.level == 3) {
-      if (frameCount % 90 === 0) {
+      if (frameCount % 60 === 0) {
         this.zombies.push(new Zombie());
       }
       this.zombies.forEach(zombie => {
