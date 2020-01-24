@@ -32,7 +32,7 @@ class Zombie {
   }
   clicked() {
     // setting parameters for the mouse to click inside
-    if (this.x + this.width - 20 < mouseX || this.x + 20 > mouseX) {
+    if (this.x + this.width - 23 < mouseX || this.x + 23 > mouseX) {
       console.log('false');
       return false;
     }

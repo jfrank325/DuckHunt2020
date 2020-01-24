@@ -42,7 +42,7 @@ function setup() {
   }
 
   textSize(50);
-  textAlign(CENTER, CENTER);
+
   clear();
 }
 
@@ -51,10 +51,17 @@ function draw() {
     background(backImg);
     fill('black');
     textFont('Georgia');
+    textSize(65);
     text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
     fill('blue');
-    text(`Let's Hunt!`, 940, 200, 500, 200);
-    text(`Press Enter To Begin`, 965, 250, 650, 200);
+    textSize(50);
+    text(`Let's Hunt!`, 965, 260, 500, 200);
+    text(`Press Enter To Begin`, 965, 310, 650, 200);
+    fill('black');
+    textSize(40);
+    text(`FIRE- Left Click`, 965, 400, 500, 100);
+    text(`RELOAD-Right Click`, 965, 440, 500, 100);
+    text(`ARROWS-Look Around`, 965, 480, 500, 100);
   }
   if (game.gameOver == true) {
     game.intro = false;
@@ -65,7 +72,7 @@ function draw() {
     textFont('Georgia');
     fill('red');
     text(`GAME OVER`, 900, 100, 500, 200);
-    fill('white');
+    fill('black');
     text(`Press ENTER if you think you can suck less and try again`, 900, 250, 500, 200);
   }
   if (game.start == true) {
@@ -76,9 +83,9 @@ function draw() {
       game.draw();
       fill('white');
       textFont('Georgia');
-      text(`SCORE ${game.score}`, 1960, 100, 380, 100);
-      text(`AMMO ${game.totalAmmo}`, 1910, 145, 500, 100);
-      text(`ROUNDS ${game.ammo}`, 2020, 192, 300, 100);
+      text(`SCORE ${game.score}`, 1900, 100, 380, 100);
+      text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);
+      text(`ROUNDS ${game.ammo}`, 1900, 192, 300, 100);
       if (game.timer <= 10) {
         fill('red');
       }
@@ -93,9 +100,9 @@ function draw() {
       // game.targets.width = game.targets.width / 3;
       fill('white');
       textFont('Georgia');
-      text(`SCORE ${game.score}`, 2000, 100, 380, 100);
-      text(`AMMO ${game.totalAmmo}`, 1910, 145, 500, 100);
-      text(`ROUNDS ${game.ammo}`, 2020, 192, 300, 100);
+      text(`SCORE ${game.score}`, 1900, 100, 380, 100);
+      text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);
+      text(`ROUNDS ${game.ammo}`, 1900, 192, 300, 100);
       if (game.timer <= 10) {
         fill('red');
       }
@@ -111,12 +118,14 @@ function draw() {
       ambience.stop();
       fill('white');
       textFont('Georgia');
-      text(`SCORE ${game.score}`, 2000, 100, 380, 100);
-      text(`AMMO ${game.totalAmmo}`, 1910, 145, 500, 100);
-      text(`ROUNDS ${game.ammo}`, 2020, 192, 300, 100);
+      text(`SCORE ${game.score}`, 1900, 100, 380, 100);
+      text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);
+      text(`ROUNDS ${game.ammo}`, 1900, 192, 300, 100);
       if (game.timer <= 10) {
         fill('red');
       }
+      fill('red');
+      text(`Aim For The Head!`, 1900, 238, 500, 100);
       text(game.timer, 1830, 100, 300, 100);
       if (frameCount % 60 === 0) {
         game.timer--;
@@ -133,7 +142,7 @@ function draw() {
       textFont('Georgia');
       text(`Congratulations!`, 980, 100, 500, 200);
       text(`You're a great hunter!`, 980, 150, 500, 200);
-      text(`Press ENTER to play again`, 950, 200, 700, 200);
+      text(`Press ENTER to play again`, 980, 200, 700, 200);
     }
     if (game.timer === -1 && game.score >= 200 && game.level == 1) {
       game.timer = 40;
