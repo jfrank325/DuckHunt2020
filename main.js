@@ -42,9 +42,7 @@ function setup() {
   if (game.level == 1 || game.level == 2) {
     ambience.loop();
   }
-
   textSize(50);
-
   clear();
 }
 
@@ -52,14 +50,14 @@ function draw() {
   if (game.intro === true && game.start === false) {
     background(backImg);
     fill('black');
-    textFont('Georgia');
+    textFont('Ubuntu');
     textSize(65);
     text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
     fill('blue');
     textSize(50);
     text(`Let's Hunt!`, 965, 260, 500, 200);
     text(`Press Enter To Begin`, 965, 310, 650, 200);
-    fill('black');
+    fill('blue');
     textSize(40);
     text(`FIRE - Left Click`, 965, 400, 500, 100);
     text(`RELOAD - Right Click`, 965, 440, 500, 100);
@@ -69,13 +67,14 @@ function draw() {
     game.intro = false;
     game.level = false;
     game.start = false;
-    background(loser);
+    // background(loser);
+    background('black');
     zomSounds.stop();
-    textFont('Georgia');
+    textFont('Ubuntu');
     fill('red');
     textSize(70);
     text(`GAME OVER`, 900, 100, 500, 200);
-    fill('blue');
+    fill('red');
     textSize(50);
     text(`Press ENTER if you think you can suck less and try again`, 900, 250, 500, 200);
   }
@@ -86,7 +85,7 @@ function draw() {
       playAmbience();
       game.draw();
       fill('white');
-      textFont('Georgia');
+      textFont('Ubuntu');
       text(`SCORE ${game.score}`, 1900, 100, 380, 100);
       text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);
       text(`ROUNDS ${game.ammo}`, 1900, 192, 300, 100);
@@ -103,7 +102,7 @@ function draw() {
       game.draw();
       // game.targets.width = game.targets.width / 3;
       fill('white');
-      textFont('Georgia');
+      textFont('Ubuntu');
       text(`SCORE ${game.score}`, 1900, 100, 380, 100);
       text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);
       text(`ROUNDS ${game.ammo}`, 1900, 192, 300, 100);
@@ -121,7 +120,7 @@ function draw() {
       playZombie();
       ambience.stop();
       fill('white');
-      textFont('Georgia');
+      textFont('Ubuntu');
       text(`SCORE ${game.score}`, 1900, 100, 380, 100);
       text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);
       text(`ROUNDS ${game.ammo}`, 1900, 192, 300, 100);
@@ -136,32 +135,32 @@ function draw() {
       }
     }
 
-    if (game.timer === -1 && game.score > 600 && game.level == 3) {
+    if (game.timer === -1 && game.score > 500 && game.level == 3) {
       game.level = false;
       game.start = false;
       game.intro = false;
       game.finish = true;
       background(end);
       zomSounds.stop();
-      textFont('Georgia');
+      textFont('Ubuntu');
       text(`Congratulations!`, 980, 150, 500, 200);
       text(`You're a great hunter!`, 980, 200, 500, 200);
       text(`Press ENTER to play again`, 980, 250, 700, 200);
     }
-    if (game.timer === -1 && game.score <= 600 && game.level == 3) {
+    if (game.timer === -1 && game.score <= 360 && game.level == 3) {
       game.gameOver = true;
     }
 
-    if (game.timer === -1 && game.score >= 200 && game.level == 1) {
+    if (game.timer === -1 && game.score >= 140 && game.level == 1) {
       game.timer = 40;
       game.totalAmmo = 20;
       game.level = 2;
     }
-    if (game.timer === -1 && game.score >= 450 && game.level == 2) {
+    if (game.timer === -1 && game.score >= 260 && game.level == 2) {
       game.timer = 40;
       game.totalAmmo = 50;
       game.level = 3;
-    } else if ((game.timer === -1 && game.score < 200) || (game.timer === -1 && game.score < 450 && game.level == 2)) {
+    } else if ((game.timer === -1 && game.score < 140) || (game.timer === -1 && game.score < 260 && game.level == 2)) {
       game.gameOver = true;
     }
   }
@@ -174,7 +173,7 @@ function mousePressed() {
       game.hunter.recoil();
       game.ammo -= 1;
       game.totalAmmo -= 1;
-      game.targets.filter(target => {
+      game.targets.filter((target) => {
         if (target.clicked() === true) {
           game.score += 20;
           target.fall();
@@ -186,13 +185,13 @@ function mousePressed() {
       //     duck.fall();
       //   }
       // });
-      game.zombies.filter(zombie => {
+      game.zombies.filter((zombie) => {
         if (zombie.clicked() === true) {
           game.score += 10;
           zombie.death2();
         }
       });
-      game.preditors.filter(preditors => {
+      game.preditors.filter((preditors) => {
         if (preditors.clicked() === true) {
           game.score += 10;
           preditors.shrink();
@@ -224,4 +223,4 @@ function playAmbience() {
 document.body.style.display = 'flex';
 document.body.style.justifyContent = 'center';
 document.body.style.zIndex = 1;
-document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('contextmenu', (event) => event.preventDefault());
