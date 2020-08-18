@@ -30,7 +30,7 @@ function preload() {
   reload = loadSound('Sounds/Reload.mp3');
   click = loadSound('Sounds/click1.mp3');
   // quack = loadSound('/Sounds/duck.mp3');
-  backImg = loadImage('Images/bunker.jpg');
+  backImg = loadImage('Images/duckhuntLogo.png');
   zomSounds = loadSound('Sounds/zombieAttack.mp3');
   end = loadImage('Images/Success.jpg');
   loser = loadImage('Images/gameover.jpg');
@@ -48,20 +48,21 @@ function setup() {
 
 function draw() {
   if (game.intro === true && game.start === false) {
-    background(backImg);
-    fill('black');
+    image(backImg, 1200, 60, 500, 400);
+    background('rgba(168,235,255, 0.1)');
+    // fill('black');
     textFont('Ubuntu');
     textSize(65);
-    text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
-    fill('blue');
-    textSize(50);
-    text(`Let's Hunt!`, 965, 260, 500, 200);
-    text(`Press Enter To Begin`, 965, 310, 650, 200);
-    fill('blue');
-    textSize(40);
-    text(`FIRE - Left Click`, 965, 400, 500, 100);
-    text(`RELOAD - Right Click`, 965, 440, 500, 100);
-    text(`ARROWS - Look Around`, 965, 480, 500, 100);
+    // text(`DUCK HUNT 2020`, 1200, 30, 600, 100);
+    fill('#eb143e');
+    textSize(30);
+    text(`Let's Hunt!`, 1200, 520, 500, 200);
+    text(`Press Enter To Begin`, 1200, 560, 650, 200);
+
+    textSize(20);
+    text(`FIRE - Left Click`, 1200, 620, 500, 100);
+    text(`RELOAD - Right Click`, 1200, 660, 500, 100);
+    text(`ARROWS - Look Around`, 1200, 700, 500, 100);
   }
   if (game.gameOver == true) {
     game.intro = false;
@@ -85,6 +86,7 @@ function draw() {
       playAmbience();
       game.draw();
       fill('white');
+      textSize(40);
       textFont('Ubuntu');
       text(`SCORE ${game.score}`, 1900, 100, 380, 100);
       text(`AMMO ${game.totalAmmo}`, 1900, 145, 500, 100);

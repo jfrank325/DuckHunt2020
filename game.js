@@ -35,6 +35,7 @@ class Game {
     if (this.level === 3) {
       this.background.draw();
     }
+    // cursor('./Images/crosser.png');
     cursor(CROSS);
     if (this.level == 1) {
       if (frameCount % 90 === 0) {
@@ -54,7 +55,7 @@ class Game {
     // this.reverseDucks.forEach(duck => {
     //   duck.draw();
     // });
-    this.targets.forEach(target => {
+    this.targets.forEach((target) => {
       target.draw();
 
       // console.log(target);
@@ -64,7 +65,7 @@ class Game {
       if (frameCount % 600 === 0) {
         this.preditors.push(new Wolf());
       }
-      this.preditors.forEach(wolf => {
+      this.preditors.forEach((wolf) => {
         wolf.draw();
       });
     }
@@ -72,7 +73,7 @@ class Game {
       if (frameCount % 60 === 0) {
         this.zombies.push(new Zombie());
       }
-      this.zombies.forEach(zombie => {
+      this.zombies.forEach((zombie) => {
         zombie.draw();
         if (zombie.y >= 1000 && zombie.y < 1050 && zombie.width >= 50) {
           this.gameOver = true;
